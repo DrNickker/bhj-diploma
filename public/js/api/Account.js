@@ -9,5 +9,6 @@ class Account extends Entity {
    * */
   static get(id = '', callback){
 
+    
   }
 }
