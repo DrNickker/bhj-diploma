@@ -1,9 +1,12 @@
+const { json } = require("express");
+
 /**
  * Основная функция для совершения запросов
  * на сервер.
  * */
 const createRequest = (options = {}) => {
     const xhr = new XMLHttpRequest;
+    xhr.responseType = 'json';
 
     const formData = new FormData();
     let queryParams = '';
@@ -18,13 +21,31 @@ const createRequest = (options = {}) => {
     }
 
 
+xhr.onreadystatechanges = () =>  {
+    if (xhr.readyState === XMLHttpRequest.DONE) {
+        let err = null;
+        let resp = null;
+
+        if (xhr.status === 200) {
+            if (xhr.response?.success) {
+                resp = xhr.response;
+            } else {
+                err = xhr.response;
+            }
+        } else {
+          err = new Error ('...');
+        }
+
+        options.callback(err, resp);
+    }
+    }
 
 
-
-    
 
 xhr.open(options.method, options.url + queryParams);
 xhr.send(formData);
+
+return xhr;
     
 
 };
