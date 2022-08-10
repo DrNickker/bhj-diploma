@@ -30,8 +30,8 @@
         let currentUser = User.current();
         if (currentUser != null) {
             const usernameElement = document.getElementsByClassName("user-name").item(0);
-            let tempObj = JSON.parse(User.current());
-            if (tempObj != null) usernameElement.textContent = tempObj.name;
+            let Obj = JSON.parse(User.current());
+            if (Obj != null) usernameElement.textContent = Obj.name;
         }
   }
 }
