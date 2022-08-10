@@ -5,6 +5,18 @@
       "email": "demo@demo",
       "password": "demo",
       "id": "1"
+    },
+    {
+      "name": "Светлана Евгеньевна Минтагирова",
+      "email": "mnn@yan.ru",
+      "password": "123",
+      "id": "54jzzcm8l6nosk4v"
+    },
+    {
+      "name": "nickker",
+      "email": "nickker1@yandex.ru",
+      "password": "123",
+      "id": "54jzzcm8l6np0inn"
     }
   ],
   "accounts": [
