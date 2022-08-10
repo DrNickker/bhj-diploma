@@ -114,3 +114,5 @@ class User {
 
   }
 }
+
+User.URL = '/user';
