@@ -50,6 +50,8 @@
       let name = e.getAttribute("data-modal-id");
       if (name == "newAccount") name = "createAccount";
       App.getModal(name).close();
+      Event.preventDefault();
+      this.close();
   }
   /**
    * Открывает окно: устанавливает CSS-свойство display
