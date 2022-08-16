@@ -17,7 +17,7 @@ class AsyncForm {
             this.element = element;
             this.registerEvents();
         } else {
-            throw new Error("cant create obj of AsyncForm.class because null-element has appeared in constructor");
+            throw new Error("cant create obj of AsyncForm.class");
         }
     }
 
