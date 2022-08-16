@@ -1,3 +1,5 @@
+const { response, application } = require("express");
+
 /**
  * Класс TransactionsPage управляет
  * страницей отображения доходов и
@@ -28,7 +30,8 @@ class TransactionsPage {
    * TransactionsPage.removeAccount соответственно
    * */
   registerEvents() {
-
+    this.element.queryselector('.remove-account').onclick = e =>
+    this.removeAccount();
   }
 
   /**
@@ -41,7 +44,13 @@ class TransactionsPage {
    * для обновления приложения
    * */
   removeAccount() {
-
+    Account.remove({id: 1}, (err, response) => {
+      if (response && response.succes) {
+        App.updateWidjets();
+        App.updateForms();
+        this.clear();
+      }
+    })
   }
 
   /**
