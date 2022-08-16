@@ -203,6 +203,7 @@ class App {
         this.getWidget("user").update();
     }
 
+    
     static updateForms() {
         this.getForm("createIncome").renderAccountsList();
         this.getForm("createExpense").renderAccountsList();

@@ -11,6 +11,7 @@ class Modal {
      * Если переданный элемент не существует,
      * необходимо выкинуть ошибку.
      * */
+
     constructor(element) {
         if (element != null) {
             this.element = element;
@@ -25,6 +26,7 @@ class Modal {
      * должен закрыть текущее окно
      * (с помощью метода Modal.onClose)
      * */
+
     registerEvents() {
         const crossBtn = this.element.getElementsByClassName("close").item(0);
         crossBtn.addEventListener("click", function (event) {
@@ -42,6 +44,7 @@ class Modal {
         })
     }
 
+    
     /**
      * Срабатывает после нажатия на элементы, закрывающие окно.
      * Закрывает текущее окно (Modal.close())

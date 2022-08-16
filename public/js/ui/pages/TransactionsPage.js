@@ -15,7 +15,7 @@ class TransactionsPage {
             this.element = element;
             this.registerEvents();
         } else {
-            throw new Error("cant create obj of TransactionsPage.class because null-element has appeared in constructor");
+            throw new Error("cant create obj of TransactionsPage.class");
         }
     }
 
@@ -99,7 +99,6 @@ class TransactionsPage {
     render(options) {
         if (options != null && options != undefined) {
             App.getPage("transactions")["lastOptions"] = options;
-
             Account.get(options.accound_id, function (err, response) {
                 if (response.success === true) {
                     let newTitle = response.data.name;
@@ -112,7 +111,6 @@ class TransactionsPage {
                 }
             });
         }
-
     }
 
     /**
@@ -140,20 +138,19 @@ class TransactionsPage {
     formatDate(date) {
         const d = new Date(date);
 
-        let month = "";
-        if (d.getMonth() == 0) month = "января";
-        if (d.getMonth() == 1) month = "февраля";
-        if (d.getMonth() == 2) month = "марта";
-        if (d.getMonth() == 3) month = "апреля";
-        if (d.getMonth() == 4) month = "мая";
-        if (d.getMonth() == 5) month = "июня";
-        if (d.getMonth() == 6) month = "июля";
-        if (d.getMonth() == 7) month = "августа";
-        if (d.getMonth() == 8) month = "сентября";
-        if (d.getMonth() == 9) month = "октября";
-        if (d.getMonth() == 10) month = "ноября";
-        if (d.getMonth() == 11) month = "декабря";
-
+                let month = "";
+                if (d.getMonth() == 0) month = "января";
+                if (d.getMonth() == 1) month = "февраля";
+                if (d.getMonth() == 2) month = "марта";
+                if (d.getMonth() == 3) month = "апреля";
+                if (d.getMonth() == 4) month = "мая";
+                if (d.getMonth() == 5) month = "июня";
+                if (d.getMonth() == 6) month = "июля";
+                if (d.getMonth() == 7) month = "августа";
+                if (d.getMonth() == 8) month = "сентября";
+                if (d.getMonth() == 9) month = "октября";
+                if (d.getMonth() == 10) month = "ноября";
+                if (d.getMonth() == 11) month = "декабря";
 
         const resultString = d.getDate() + " " +
             month + " " +
