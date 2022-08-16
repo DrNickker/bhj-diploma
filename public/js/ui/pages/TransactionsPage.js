@@ -15,7 +15,7 @@
           this.element = element;
           this.registerEvents();
       } else {
-          throw new Error("cant create obj of TransactionsPage.class because null-element has appeared in constructor");
+          throw new Error("cant create obj of TransactionsPage.class");
       }
   }
 
