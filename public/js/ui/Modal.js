@@ -28,32 +28,29 @@ class Modal {
      * */
 
     registerEvents() {
-        const crossBtn = this.element.getElementsByClassName("close").item(0);
-        crossBtn.addEventListener("click", function (event) {
-            event.preventDefault();
-            let name = event.target.closest(".modal").getAttribute("data-modal-id");
-            if (name == "newAccount") name = "createAccount";
-            App.getModal(name).onClose(event.target.closest(".modal"));
-        })
+/*         const closeButton = this.element.querySelectorAll('[data-dismiss="modal"]').array.forEach(btn => {
+        btn.onclick = e => {
+        this.onClose(e);
+        }
+    }); */
 
-        const closeBtn = this.element.getElementsByClassName("btn-default").item(0);
-        closeBtn.addEventListener("click", function (event) {
-            event.preventDefault();
-            let name = event.target.closest(".modal").getAttribute("data-modal-id");
-            App.getModal(name).onClose(event.target.closest(".modal"));
-        })
-    }
+
+        Array.from(this.element.querySelectorAll('[data-dismiss="modal"]')).forEach((elem) => {
+          elem.addEventListener('click', (e) => {
+            this.onClose(e);
+          });
+        });
+      }
 
     
     /**
      * Срабатывает после нажатия на элементы, закрывающие окно.
      * Закрывает текущее окно (Modal.close())
      * */
-    onClose(e) {
-        let name = e.getAttribute("data-modal-id");
-        if (name == "newAccount") name = "createAccount";
-        App.getModal(name).close();
-    }
+     onClose(e) {
+        e.preventDefault();
+        this.close();
+      }
     /**
      * Открывает окно: устанавливает CSS-свойство display
      * со значением «block»
